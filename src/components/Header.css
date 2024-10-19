@@ -18,6 +18,7 @@
 .logo {
   font-size: 2.2em;
   background: linear-gradient(45deg, #fff, #d4edda);
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: bold;
   transition: color 0.3s, transform 0.2s;
@@ -36,6 +37,7 @@
 
 .header.dark-mode .logo {
   background: linear-gradient(45deg, #4CAF50, #20c997);
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
