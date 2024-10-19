@@ -1,0 +1,21 @@
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+  }
+  
+  footer p {
+    margin: 0;
+  }
+  
+  footer a {
+    color: #4CAF50;
+    transition: color 0.3s;
+  }
+  
+  footer a:hover {
+    color: #66bb6a;
+  }
+  
