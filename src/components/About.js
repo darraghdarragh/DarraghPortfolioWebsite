@@ -4,7 +4,7 @@ import './About.css';
 function About() {
   return (
     <section id="about" className="about">
-      <h2>About Me</h2>
+      <h2 className="about-heading">About Me</h2>
       <div className="about-content">
         {/* Reference the image using the public folder path */}
         <img src="/images/profile.jpg" alt="Profile" className="profile-image" />

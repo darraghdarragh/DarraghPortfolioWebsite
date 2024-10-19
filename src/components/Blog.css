@@ -1,9 +1,71 @@
+/* Styling for the Blog Section */
 .blog {
     padding: 50px 20px;
     background-color: #f7f7f7;
-    text-align: center;
+    text-align: center; /* Center the text for the entire section */
   }
   
+  /* Green-themed Styling for the Blog Heading */
+  .blog-heading {
+    font-size: 2.8em;
+    background: linear-gradient(45deg, #28a745, #20c997);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    margin: 20px auto;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    transition: transform 0.2s ease-in-out;
+    display: inline-block;
+    animation: text-glow 3s ease-in-out infinite;
+    position: relative;
+    text-shadow: 
+      1px 1px 2px #000, /* Black shadow for outline effect */
+      -1px -1px 2px #000, 
+      1px -1px 2px #000, 
+      -1px 1px 2px #000;
+  }
+  
+  .blog-heading::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 3px;
+    background-color: #20c997;
+    margin: 8px auto 0;
+    border-radius: 1px;
+    transition: width 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  }
+  
+  .blog-heading:hover {
+    transform: translateY(-3px);
+  }
+  
+  .blog-heading:hover::after {
+    width: 120px;
+    background-color: #28a745;
+  }
+  
+  /* Glowing effect for the text */
+  @keyframes text-glow {
+    0%, 100% {
+      text-shadow: 
+        0 0 10px #20c997, 0 0 20px #20c997, 
+        0 0 30px #28a745, 0 0 40px #28a745, 
+        1px 1px 2px #000, -1px -1px 2px #000, 
+        1px -1px 2px #000, -1px 1px 2px #000;
+    }
+    50% {
+      text-shadow: 
+        0 0 15px #28a745, 0 0 25px #28a745, 
+        0 0 35px #20c997, 0 0 45px #20c997, 
+        1px 1px 2px #000, -1px -1px 2px #000, 
+        1px -1px 2px #000, -1px 1px 2px #000;
+    }
+  }
+  
+  /* Styling for Individual Blog Posts */
   .blog-post {
     background: #fff;
     border-radius: 10px;
@@ -11,7 +73,12 @@
     padding: 20px;
     max-width: 600px;
     margin: 0 auto;
-    transition: transform 0.2s;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  
+  .blog-post:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   }
   
   .blog-post h3 {
@@ -28,7 +95,7 @@
   }
   
   .blog-post .btn {
-    background-color: #007bff;
+    background-color: #28a745;
     color: #fff;
     padding: 10px 15px;
     border-radius: 5px;
@@ -37,10 +104,11 @@
   }
   
   .blog-post .btn:hover {
-    background-color: #0056b3;
+    background-color: #1e7e34;
     transform: translateY(-2px);
   }
   
+  /* Styling for Modal */
   .modal {
     position: fixed;
     top: 0;
@@ -61,21 +129,11 @@
     max-width: 500px;
     text-align: left;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(0.95);
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
   }
   
-  .modal-content h3 {
-    font-size: 1.6em;
-    margin-bottom: 15px;
-    color: #333;
-  }
-  
-  .modal-content p {
-    font-size: 1em;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
-  
+  /* Styling for Close Button in Modal */
   .close-btn {
     background-color: #dc3545;
     color: #fff;
