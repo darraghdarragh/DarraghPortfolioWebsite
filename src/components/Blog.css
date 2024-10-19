@@ -9,7 +9,6 @@
   .blog-heading {
     font-size: 2.8em;
     background: linear-gradient(45deg, #28a745, #20c997);
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
     margin: 20px auto;
