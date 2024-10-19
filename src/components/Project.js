@@ -4,7 +4,7 @@ import './Project.css';
 function Project() {
   return (
     <section id="project" className="projects">
-      <h2>My Projects</h2>
+      <h2 className="projects-heading">My Projects</h2>
       <div className="project-grid">
         {/* Project Card 1 */}
         <div className="project-card">

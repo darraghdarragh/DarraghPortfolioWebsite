@@ -2,38 +2,36 @@ import React, { useState } from 'react';
 import './Blog.css';
 
 function Blog() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
-  const handleReadMoreClick = (event) => {
+  const handleReadMore = (event) => {
     event.preventDefault();
-    setIsModalOpen(true);
+    setShowModal(true);
   };
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
+  const closeModal = () => {
+    setShowModal(false);
   };
 
   return (
     <section id="blog" className="blog">
-      <h2>Blog</h2>
-      <article className="blog-post">
+      <h2 className="blog-heading">Blog</h2>
+      <div className="blog-post">
         <h3>My Development Journey</h3>
         <p>
           A deep dive into the process of building this portfolio, including design decisions, challenges, and technical solutions.
         </p>
-        <a href="#" className="btn" onClick={handleReadMoreClick}>Read More</a>
-      </article>
+        <a href="#" className="btn" onClick={handleReadMore}>Read More</a>
+      </div>
 
-      {isModalOpen && (
-        <div className="modal">
-          <div className="modal-content">
+      {showModal && (
+        <div className="modal" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <h3>My Development Journey</h3>
             <p>
-              Here is the full article where I describe the entire process of building this portfolio. I go into details about
-              the challenges I faced, the tools I used, and the design decisions I made. It’s been a fantastic learning experience,
-              and I'm excited to share my journey!
+              This is where you can put more detailed information about your development journey, including challenges you faced, solutions you found, and your learning experience.
             </p>
-            <button className="btn close-btn" onClick={handleCloseModal}>Close</button>
+            <button className="close-btn" onClick={closeModal}>Close</button>
           </div>
         </div>
       )}
