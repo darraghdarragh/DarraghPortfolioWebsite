@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import './Contact.css';
 
 function Contact() {
@@ -7,11 +8,31 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { name, email, message } = e.target.elements;
+
     if (!name.value || !email.value || !message.value) {
       setFormStatus('Please fill in all fields.');
       return;
     }
-    setFormStatus('Thanks for reaching out! I will get back to you soon.');
+
+    const templateParams = {
+      to_name: 'Darragh', // Replace with your name if you want a static recipient name
+      from_name: name.value, // This will replace {{from_name}} in your template
+      from_email: email.value, // Add this if you want to show the sender's email in the template
+      message: message.value, // This will replace {{message}} in your template
+    };
+
+    emailjs.send('service_0optf9i', 'template_gfz5xdg', templateParams, 'JqvOC3BfiXz0LygOD')
+      .then(
+        (response) => {
+          console.log('SUCCESS!', response.status, response.text);
+          setFormStatus('Thanks for reaching out! I will get back to you soon.');
+        },
+        (error) => {
+          console.error('FAILED...', error);
+          setFormStatus('An error occurred, please try again later.');
+        }
+      );
+
     e.target.reset();
   };
 
